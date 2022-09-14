@@ -1,5 +1,5 @@
 /*******************************************************************************
-  P02B: Práctica botón y pantalla OLED
+  E02: Ejemplo botón y pantalla OLED
   
   Este ejemplo permite comprobar el funcionamiento de los botones y pantalla.
   -Pulsando un boton externo se muestra en pantalla.

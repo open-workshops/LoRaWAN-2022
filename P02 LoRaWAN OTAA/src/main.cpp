@@ -27,6 +27,20 @@ const char* appKey = "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"; // Rellena con la Applic
 
 TTN_esp32 ttn;
 
+void handleDownlink(const uint8_t* payload, size_t size, int rssi)
+{
+    Serial.println("-- NUEVO DOWNLINK");
+    Serial.println("Recibidos " + String(size) + " bytes RSSI=" + String(rssi) + "db");
+
+    // Imprimimos todos los bytes del downlink
+    for (int i = 0; i < size; i++)
+    {
+        Serial.print(payload[i], HEX);
+        Serial.print(" ");
+    }
+    Serial.println();
+}
+
 void setup()
 {
     Serial.begin(115200);
@@ -34,6 +48,7 @@ void setup()
 
     ttn.begin();
     ttn.join(devEui, appEui, appKey); // OTAA
+    ttn.onMessage(handleDownlink);
 
     Serial.print("TTN Join");
     while (!ttn.isJoined())

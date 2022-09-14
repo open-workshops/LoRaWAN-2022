@@ -54,3 +54,22 @@ void loop()
   Serial.println("Enviando uplink...");
   delay(15000);
 }
+
+
+
+
+
+
+
+
+
+
+
+
+void handleDownlink(const uint8_t* payload, size_t size, int rssi)
+{
+    Serial.println("-- NUEVO DOWNLINK");
+    Serial.println("Recibidos " + String(size) + " bytes RSSI=" + String(rssi) + "db");
+
+    Serial.println(payload[0]);
+}

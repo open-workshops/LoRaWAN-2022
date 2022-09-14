@@ -1,5 +1,5 @@
 /*******************************************************************************
-  P02a: Práctica Hola Mundo pantalla OLED
+  E01: Ejemplo Hola Mundo pantalla OLED
   
   Este ejemplo permite comprobar el funcionamiento de la pantalla.
   -En la pantalla se muestra el texto Hola Mundo

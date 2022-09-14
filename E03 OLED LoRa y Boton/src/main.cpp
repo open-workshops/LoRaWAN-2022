@@ -1,5 +1,5 @@
 /*******************************************************************************
-  P02C: Práctica de LoRa P2P con botón y pantalla OLED
+  E03: Ejemplo de LoRa P2P con botón y pantalla OLED
   
   Este ejemplo permite recibir y enviar tramas LoRa utilizando boton y pantalla
   -Pulsando un botón externo se envía una trama LoRa.
