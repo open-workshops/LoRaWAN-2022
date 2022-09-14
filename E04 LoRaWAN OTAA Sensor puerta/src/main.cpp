@@ -102,7 +102,7 @@ void loop()
 
         if (status == DOOR_CLOSED)
         {
-            Serial.println("Enviando puerta CERRADO");
+            Serial.println("Enviando puerta CERRADA");
             uint8_t* payload = (uint8_t*) "CERRADA";
             ttn.sendBytes(payload, 7);
         }
