@@ -1,7 +1,7 @@
 /***************************************************************************
-  P02: Práctica de LoRaWAN con ABP
+  P02: Práctica de LoRaWAN Hola Mundo
   
-  Este ejemplo permite enviar uplinks con activación por ABP
+  Este ejemplo permite enviar uplinks
   - Cada 15 segundos se envía un uplink LoRaWAN con un hola mundo
 
   Crea un dispositivo en TTN y rellena los campos de abajo con
@@ -20,6 +20,7 @@
 #include <Arduino.h>
 #include <TTN_esp32.h>
 
+// claves ABP
 const char *devAddr = "XXXXXXX";                          // Rellena con el Device Address de TTN
 const char *nwkSKey = "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"; // Rellena con la Network Session Key de TTN
 const char *appSKey = "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"; // Rellena con la Application Session Key de TTN
@@ -32,14 +33,23 @@ void setup()
   Serial.println("Iniciando");
 
   ttn.begin();
-  ttn.personalize(devAddr, nwkSKey, appSKey);
+  ttn.personalize(devAddr, nwkSKey, appSKey); // ABP
+
+  // Codigo para OTAA
+  //while (!ttn.isJoined())
+  //{
+  //    Serial.print(".");
+  //    delay(500);
+  //}
+  //Serial.println("\njoined!");
+
   ttn.showStatus();
 }
 
 void loop()
 {
-  uint8_t *payload = (uint8_t *)"hola";
-  ttn.sendBytes(payload, 4);
+  uint8_t *payload = (uint8_t *)"hola ABP";
+  ttn.sendBytes(payload, 8);
   
   Serial.println("Enviando uplink...");
   delay(15000);
